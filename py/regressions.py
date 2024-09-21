@@ -9,6 +9,9 @@ def lin(x, k, b):
 def lin0(x, k):
     return k * x
 
+def lin1(x, k, x0):
+    return k * (x0 - x)
+
 
 def plot_func(func, _x, args, n=100, lw=1, ls='-', color='black', label=None, ax=plt):
     x = np.linspace(min(_x), max(_x), n)
