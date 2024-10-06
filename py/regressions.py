@@ -18,6 +18,14 @@ def gauss(x, a, b, c):
     return a * np.exp(-(x - b) ** 2 / 2 / c ** 2)
 
 
+def parabola_centered(x, x_c, y_c, a):
+    return y_c + a * (x - x_c) ** 2
+
+def parabola(x, a, b, c):
+    return a * x ** 2 + b * x + c
+
+
+
 def plot_func(func, _x, args, n=100, lw=1, ls='-', color='black', label=None, ax=plt):
     x = np.linspace(min(_x), max(_x), n)
     ax.plot(x, func(x, *args), color=color, lw=lw, ls=ls, label=label)
