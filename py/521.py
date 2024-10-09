@@ -37,7 +37,13 @@ I3 = np.array([776, 567, 443, 755, 1127, 1062, 177, 30,
                -52, 65, 0, 1220, 1240, 1203, 1074, 481,
                430, 441, 472, 517]) * 1e-1
 
-sI = 1e-1
+sU1 = 1e-2 + 5e-3 * U1
+sU2 = 1e-2 + 5e-3 * U2
+sU3 = 1e-2 + 5e-3 * U3
+
+sI1 = 1e-1 + 5e-3 * I1
+sI2 = 1e-1 + 5e-3 * I2
+sI3 = 1e-1 + 5e-3 * I3
 
 I1 = I1[U1.argsort()]
 U1.sort()
@@ -48,8 +54,11 @@ U3.sort()
 
 size = 15
 plt.scatter(U1, I1, s=size, color='black', marker='o', label=r'$U_{зад}=4\ \text{В}$')
+plt.errorbar(U1, I1, xerr=sU1, yerr=sI1, color='black', ls='')
 plt.scatter(U2, I2, s=size, color='black', marker='^', label=r'$U_{зад}=6\ \text{В}$')
+plt.errorbar(U2, I2, xerr=sU2, yerr=sI2, color='black', ls='')
 plt.scatter(U3, I3, s=size, color='black', marker='s', label=r'$U_{зад}=8\ \text{В}$')
+plt.errorbar(U3, I3, xerr=sU3, yerr=sI3, color='black', ls='')
 
 plt.legend()
 plt.xticks(np.arange(0, 65, 10))
@@ -74,6 +83,8 @@ p32 = np.arange(21, 27)
 
 U = [U1, U2, U3]
 I = [I1, I2, I3]
+sU = [sU1, sU2, sU3]
+sI = [sI1, sI2, sI3]
 p = [[p11, p12], [p21, p22], [p31, p32]]
 
 d = [[[2, 2], [2, 2]],
@@ -93,11 +104,15 @@ for i in range(3):
     plt.scatter(U[i], I[i], s=size, color='black', facecolors='none')
     plt.scatter(U[i][p[i][0]], I[i][p[i][0]], s=size, color='black')
     plt.scatter(U[i][p[i][1]], I[i][p[i][1]], s=size, color='black')
+    plt.errorbar(U[i][p[i][0]], I[i][p[i][0]],
+                 xerr=sU[i][p[i][0]], yerr=sI[i][p[i][0]], color='black', ls='')
+    plt.errorbar(U[i][p[i][1]], I[i][p[i][1]],
+                 xerr=sU[i][p[i][1]], yerr=sI[i][p[i][1]], color='black', ls='')
 
-    cs1 = curve_fit(reg.parabola_centered, U[i][p[i][0]], I[i][p[i][0]], sigma=sI,
+    cs1 = curve_fit(reg.parabola_centered, U[i][p[i][0]], I[i][p[i][0]], sigma=sI[i][p[i][0]],
                     maxfev=100000, bounds=((-np.inf, -np.inf, -np.inf), (np.inf, np.inf, 0)))
     reg.plot_func(reg.parabola_centered, U[i][p[i][0]], cs1[0])
-    cs2 = curve_fit(reg.parabola_centered, U[i][p[i][1]], I[i][p[i][1]], sigma=sI,
+    cs2 = curve_fit(reg.parabola_centered, U[i][p[i][1]], I[i][p[i][1]], sigma=sI[i][p[i][1]],
                     maxfev=100000, bounds=((-np.inf, -np.inf, -np.inf), (np.inf, np.inf, 0)))
     reg.plot_func(reg.parabola_centered, U[i][p[i][1]], cs2[0])
 
@@ -110,10 +125,10 @@ for i in range(3):
 
     plt.axvline(u1, color='black')
     plt.axvline(u2, color='black')
-    plt.text(u1 + 1, h[i][0],  fontsize=8,
-             s=rf'$U_1={'{:.2f}'.format(u1)}\pm{'{:.2f}'.format(su1)}\ $' + r'$\text{В}$')
-    plt.text(u2 + 1, h[i][1],  fontsize=8,
-             s=rf'$U_2={'{:.2f}'.format(u2)}\pm{'{:.2f}'.format(su2)}\ $' + r'$\text{В}$')
+    plt.text(u1 + 1, h[i][0], fontsize=8,
+             s=rf'$U_1={"{:.2f}".format(u1)}\pm{"{:.2f}".format(su1)}\ $' + r'$\text{В}$')
+    plt.text(u2 + 1, h[i][1], fontsize=8,
+             s=rf'$U_2={"{:.2f}".format(u2)}\pm{"{:.2f}".format(su2)}\ $' + r'$\text{В}$')
 
     plt.text(50.5, 5, s=r'$U_{зад}=$' + rf'${U_z[i]}\ $' + r'$\text{В}$')
 
