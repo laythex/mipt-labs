@@ -1,0 +1,75 @@
+\documentclass[14pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\title{\textbf{Отчет о выполнении лабы по сортам}}
+\author{Калашников Михаил, Б03-205}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\setcounter{enumi}{-1}
+
+\item Пузырек и его товарищи
+
+Мною были реализованы сортировки пузырьком, вставкой и перемешиванием. Построив график зависимости времени сортировки от размера исходного массива в двойном логарифмическом масштабе, получим прямую. Нетрудно заметить, что $\frac{log(t)}{log(N)}=2$. Из этого следует, что изначальная зависимость была квадратичной.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.7]{0.png}
+\label{image0}
+\end{figure}
+
+\clearpage
+\item Пузырек, но быстрее
+
+Проведем указанные манипуляции с компилятором и построим зависимости.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.7]{1.png}
+\label{image1}
+\end{figure}
+
+\clearpage
+\item А теперь настоящие быстрые сортировки
+
+Я выбрал сортировку кучей, расческой и слиянием. Построив график в осях $\frac{t}{NlogN}$ и $N$, получается значение, близкое к константе, начиная с некоторого размера массива.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.7]{2.png}
+\label{image2}
+\end{figure}
+
+\clearpage
+\item $O(N^2)$ vs $O(NlogN)$
+
+Поместим зависимости из пунктов 0 и 2 на один график.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.7]{3.png}
+\label{image3}
+\end{figure}
+
+\clearpage
+\item Зависимость от начальных данных
+
+Будем скармливать каждому из шести алгоритмов различные массивы: отсортированные, неотсортированные и отсортированные в обратном порядке. Полученные 18 засимостей сгруппируем и поместим на шесть графиков.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.7]{4.png}
+\label{image4}
+\end{figure}
+
+
+\end{enumerate}
+
+\end{document}
