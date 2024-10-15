@@ -11,7 +11,7 @@ def lin0(x, k):
 
 
 def lin1(x, k, x0):
-    return k * (x0 - x)
+    return k * (x - x0)
 
 
 def gauss(x, a, b, c):
