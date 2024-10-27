@@ -14,16 +14,24 @@ def lin1(x, k, x0):
     return k * (x - x0)
 
 
+def lin_inv(x, k, b):
+    return (x - b) / k
+
+
 def gauss(x, a, b, c):
     return a * np.exp(-(x - b) ** 2 / 2 / c ** 2)
+
+
+def impulse(t, c, rc, tau0):
+    return c * np.exp(-t / rc) * (1 - np.exp(-t / tau0))
 
 
 def parabola_centered(x, x_c, y_c, a):
     return y_c + a * (x - x_c) ** 2
 
+
 def parabola(x, a, b, c):
     return a * x ** 2 + b * x + c
-
 
 
 def plot_func(func, _x, args, n=100, lw=1, ls='-', color='black', label=None, ax=plt):
