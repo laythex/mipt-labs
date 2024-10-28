@@ -1,0 +1,89 @@
+\documentclass[14pt, a4paper]{article}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{multirow}
+\usepackage{slashbox}
+\usepackage{makecell}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{amstext}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage{float}
+\usepackage{indentfirst}
+
+\usepackage[a4paper,
+            		left=1in,
+            		right=1in,
+           		 top=1in,
+            		bottom=1in,
+            		footskip=.25in]{geometry}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+
+\title{\textbf{Отчет о выполнении лабораторной работы 17 "Демодуляция в шумах"}}
+\author{Калашников Михаил, Б03-202}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Канал с двоичной фазовой модуляцией}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{../images/rt2-1}
+\end{figure}
+
+Повернем созвездие на угол $\frac{\pi}{4}$. При $\text{snr}=6\ \text{dB}$, получим, что $P_e^\prime\approx0.023$. Как видно из графика, при $\text{snr}=3\ \text{dB}$ вероятность ошибки изначального созвездия так же составляет $P_e\approx0.023$.
+
+\section{Канал с двоичной ортогональной модуляцией}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{../images/rt2-2}
+\end{figure}
+
+Повернем созвездие на угол $\frac{\pi}{8}$. При $\text{snr}=6\ \text{dB}$, получим, что $P_e^\prime\approx0.071$. Это примерно соответствует значению $\text{snr}\approx3.5\ \text{dB}$.
+
+\section{Канал с двоичной амплитудной модуляцией}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{../images/rt2-3}
+\end{figure}
+
+\section{Канал с квадратурной модуляцией QPSK}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{../images/rt2-4}
+\end{figure}
+
+Оценим выигрыш в отношении сигнал/шум, который нумерация Грея дает при $P_b\approx10^{-3}$. Для этого установим  $\text{snr}=10\ \text{dB}$. При этом вероятность ошибки на бит при Binary-нумерации составит $P_b^\prime\approx0.0012$. Затем перейдем на нумерацию Грея и будем постепенно снижать отношение сигнал/шум. При $\text{snr}=9.6\ \text{dB}$ получим ту же самую вероятность ошибки.
+
+\section{Каналы с M-ичной модуляцией}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{../images/rt2-5}
+\end{figure}
+
+\section{Линейная модуляция с прямоугольным импульсом}
+
+\section{Корень из приподнятого косинуса}
+
+\section{Двоичная частотная модуляция}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{../images/rt2-8}
+\end{figure}
+
+\section{Модуляция с минимальным частотным сдвигом}
+
+\end{document}

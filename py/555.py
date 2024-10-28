@@ -80,7 +80,7 @@ plt.cla()
 p = np.arange(1600, 1800)
 
 cs = curva_fit(reg.gauss, ch[p], na22[p],
-                maxfev=1000000, p0=(10, 1700, 100))
+               maxfev=1000000, p0=(10, 1700, 100))
 reg.plot_func(reg.gauss, ch[p], cs[0], lw=width)
 
 N_na22 = cs[0][1]
@@ -106,7 +106,7 @@ plt.cla()
 p = np.arange(800, 1000)
 
 cs = curva_fit(reg.gauss, ch[p], cs137[p],
-                maxfev=1000000, p0=(150, 900, 100))
+               maxfev=1000000, p0=(150, 900, 100))
 reg.plot_func(reg.gauss, ch[p], cs[0], lw=width)
 
 N_cs137 = cs[0][1]
@@ -174,7 +174,7 @@ plt.cla()
 p = np.arange(430, 560)
 
 cs = curva_fit(reg.gauss, ch[p], eu152[p],
-                maxfev=1000000, p0=(300, 500, 50))
+               maxfev=1000000, p0=(300, 500, 50))
 reg.plot_func(reg.gauss, ch[p], cs[0], lw=width)
 
 N_eu152 = cs[0][1]
@@ -200,7 +200,7 @@ plt.cla()
 p = np.arange(430, 560)
 
 cs = curva_fit(reg.gauss, ch[p], eu152[p],
-                maxfev=1000000, p0=(300, 500, 50))
+               maxfev=1000000, p0=(300, 500, 50))
 reg.plot_func(reg.gauss, ch[p], cs[0], lw=width)
 
 N_eu152 = cs[0][1]
@@ -226,7 +226,7 @@ plt.cla()
 p = np.arange(90, 160)
 
 cs = curva_fit(reg.gauss, ch[p], am241[p],
-                maxfev=1000000, p0=(1800, 125, 40))
+               maxfev=1000000, p0=(1800, 125, 40))
 reg.plot_func(reg.gauss, ch[p], cs[0], lw=width)
 
 N_am241 = cs[0][1]
@@ -246,4 +246,3 @@ plt.ylabel('Скорость счета, отн. ед.')
 plt.grid()
 plt.show()
 plt.cla()
-

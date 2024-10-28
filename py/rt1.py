@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
-import regressions as reg
 
 U_in1 = np.array([10, 30, 60, 90, 120,
                   150, 200, 250, 300,
@@ -21,7 +19,6 @@ plt.grid()
 
 plt.savefig('../images/rt1-1.png', dpi=300)
 plt.show()
-
 
 w = np.array([1, 1.02, 1.04, 1.01, 1.03, 1.05,
               0.99, 0.98, 0.97, 0.97])
