@@ -172,5 +172,23 @@ plt.ylabel('Вероятность ошибки')
 plt.legend()
 plt.grid()
 plt.savefig('../images/rt2-8.png', dpi=300)
-plt.show()
+# plt.show()
+plt.cla()
+
+# -------------------- 9 --------------------
+
+snr9 = np.arange(0, 9)
+Pe9 = np.array([0.15, 0.11, 0.073, 0.043, 0.023,
+                0.0095, 0.0037, 0.0011, 0.0002])
+Pe9th = 2 * qerr(snr9, 2)
+
+plt.scatter(snr9, Pe9, s=size, color='black', label='Эксперимент')
+plt.scatter(snr9, Pe9th, s=size, color='black', facecolors='none', label='Теория')
+
+plt.xlabel('Соотношение сигнал/шум')
+plt.ylabel('Вероятность ошибки')
+plt.legend()
+plt.grid()
+plt.savefig('../images/rt2-9.png', dpi=300)
+# plt.show()
 plt.cla()
