@@ -34,6 +34,9 @@ def parabola(x, a, b, c):
     return a * x ** 2 + b * x + c
 
 
+def constant(x, c):
+    return c
+
 def plot_func(func, _x, args, n=100, lw=1, ls='-', color='black', label=None, ax=plt):
     x = np.linspace(min(_x), max(_x), n)
     ax.plot(x, func(x, *args), color=color, lw=lw, ls=ls, label=label)
